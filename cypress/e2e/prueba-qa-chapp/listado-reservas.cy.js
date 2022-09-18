@@ -1,13 +1,13 @@
-describe('Test para PruebaQA', function() {
+describe('Test de página listado de reservas', function() {
     beforeEach(function() {
         cy.visit('https://mggp.pythonanywhere.com');
     });
 
-    it('Pagina Principal', function() {
+    it.skip('Pagina Principal', function() {
         cy.get('table')
-            .contains('th', 'fecha entrada')
-            .contains('th', 'fecha salida')
-            .contains('th', 'tipo de habitación')
+            .contains('th', 'Check-in') //Fecha entrada
+            .contains('th', 'Check-out') //Fecha salida
+            .contains('th', 'habitación')
             .contains('th', 'nº huéspedes')
             .contains('th', 'datos de contacto')
             .contains('th', 'precio total')

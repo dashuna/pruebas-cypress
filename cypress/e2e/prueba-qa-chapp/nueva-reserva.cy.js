@@ -1,8 +1,4 @@
-// let filaIndividual = document.getElementsByTagName("tr")[1];
-// //cy.get('td').should('contain.text', 'Individual')
-// let individualDisponible = filaIndividual.getElementsByTagName("td")[2];
-
-describe('Test para PruebaQA', function() {
+describe('Test de página nueva reserva', function() {
     beforeEach(function() {
         cy.visit('https://mggp.pythonanywhere.com/room_types/');
     });
@@ -11,12 +7,19 @@ describe('Test para PruebaQA', function() {
         cy.visit('https://mggp.pythonanywhere.com/room_types/');
         cy.get('input[type=number]');
         cy.get('input[type=date]');
-        //Hay que comprobar los nombres de esos inputs
-    })
+        cy.get('th')
+            .should($th => {
+                expect($th.get(0).textContent).to.equal('Tipo habitación');
+                expect($th.get(1).textContent).to.equal('Capacidad');
+                expect($th.get(2).textContent).to.contain('Cantidad');
+                expect($th.get(3).textContent).to.contain('Precio');
+                expect($th.get(4).textContent).to.contain('');
+            });
+    });
 
     it('Comprobar Tabla de disponibilidad', function() {
         cy.get('[name="start_date"]').type('2022-09-16');
-        cy.get('[name="end_date"]').type('2022-09-18');
+        cy.get('[name="end_date"]').type('2022-09-17');
         cy.get('.btn')
             .should('contain.text', 'Buscar disponibilidad')
             .click();
@@ -33,5 +36,16 @@ describe('Test para PruebaQA', function() {
                 expect($td.get(17).textContent).to.equal('6');
             });
     });
+
+    after(function() {
+        cy.get('td')
+            .should($td => {
+                expect($td.get(3).textContent).to.equal('20,00');
+                expect($td.get(8).textContent).to.equal('30,00');
+                expect($td.get(13).textContent).to.equal('40,00');
+                expect($td.get(18).textContent).to.equal('50,00');
+            });
+    });
+
 
 });
