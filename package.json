@@ -1,0 +1,29 @@
+{
+    "name": "pruebas-cypress",
+    "version": "1.0.0",
+    "description": "Pruebas QA Cypress Testing Framework",
+    "main": "index.js",
+    "scripts": {
+        "test": "test",
+        "cypress:open": "cypress open"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/dashuna/cypress.git"
+    },
+    "keywords": [
+        "e2e",
+        "automation",
+        "framework",
+        "cypress"
+    ],
+    "author": "daryalynnyk",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/dashuna/cypress/issues"
+    },
+    "homepage": "https://github.com/dashuna/cypress#readme",
+    "devDependencies": {
+        "cypress": "^10.8.0"
+    }
+}
